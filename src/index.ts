@@ -16,7 +16,7 @@ app.use(cookieSession({ keys: ["1wdfgt52334trg"] }));
 app.use(router);
 app.use(AppRouter.getInstance());
 
-const PORT = process.env.PORT || 4040;
+const PORT = 4040;
 app.listen(PORT, () => {
   console.log(`Seerver listening on port ${PORT}`);
 });

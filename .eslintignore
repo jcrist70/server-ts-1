@@ -1,6 +1,6 @@
 
 *.html
 *.css
-notes.js
+notes.txt
 webpack.config.js
 tsconfig.json

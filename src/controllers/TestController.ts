@@ -1,5 +1,8 @@
 import { Request, Response, NextFunction } from "express";
+
 import { get, controller, use } from "./decorators";
+import { getConfigItem } from './inferring';
+import { statusHandler } from "./exclusive";
 
 function requireAuth(req: Request, res: Response, next: NextFunction): void {
   if (req.session && req.session.loggedIn) {
@@ -32,6 +35,10 @@ export class TestController {
   @get("/protected")
   @use(requireAuth)
   getProtected(req: Request, res: Response) {
-    res.send("Test router protected routes");
+    let response = getConfigItem("user", "firstName");
+    response = response + ', ' + JSON.stringify(statusHandler({message: 'Hello from exclusive type example:', variant: 'critical'}));
+    response = response + ', ' + JSON.stringify(statusHandler({messageId: '123', variant: 'critical'}));
+    response = "Test router protected routes: " + response;
+    res.send(response);
   }
 }
