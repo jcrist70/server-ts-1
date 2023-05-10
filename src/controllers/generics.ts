@@ -1,6 +1,6 @@
 
 // Using generics to type after declaration
-export function getArray<T>(items: T[]): T[] {
+export const getArray = <T,>(items: T[]): T[] => {
     const arr: T[] = [...items];
     // return new Array().concat(items);
     return arr;
