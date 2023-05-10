@@ -3,6 +3,7 @@ import { Request, Response, NextFunction } from "express";
 import { get, controller, use } from "./decorators";
 import { getConfigItem } from './inferring';
 import { statusHandler } from "./exclusive";
+import { getArray, getRandomFromArray } from './generics';
 
 function requireAuth(req: Request, res: Response, next: NextFunction): void {
   if (req.session && req.session.loggedIn) {
@@ -38,6 +39,8 @@ export class TestController {
     let response = getConfigItem("user", "firstName");
     response = response + ', ' + JSON.stringify(statusHandler({message: 'Hello from exclusive type example:', variant: 'critical'}));
     response = response + ', ' + JSON.stringify(statusHandler({messageId: '123', variant: 'critical'}));
+    response = response + ', ' + getArray([1,2,3,4,5]) + ', ' + getArray(['apples', 'oranges', 'pears']);
+    response = response + ', ' + getRandomFromArray([1,2,3,4,5]) + ', ' + getRandomFromArray(['apples', 'oranges', 'pears']);
     response = "Test router protected routes: " + response;
     res.send(response);
   }
