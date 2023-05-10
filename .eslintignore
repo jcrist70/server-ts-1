@@ -1,0 +1,6 @@
+
+*.html
+*.css
+notes.js
+webpack.config.js
+tsconfig.json

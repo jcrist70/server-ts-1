@@ -1,0 +1,8 @@
+# Ignore artifacts:
+dist
+*.json
+.eslintignore
+.prettierignore
+webpack.*
+notes.js
+
