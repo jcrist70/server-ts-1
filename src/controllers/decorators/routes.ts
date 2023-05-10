@@ -9,10 +9,10 @@ interface RouteHandlerDescriptor extends PropertyDescriptor {
 
 function routeBinder(method: string) {
   return function (path: string) {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     return function (
       target: object,
       key: string,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       desc: RouteHandlerDescriptor
     ) {
       // console.log('TYPEOF TARGET:', typeof target);
