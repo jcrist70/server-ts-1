@@ -22,7 +22,8 @@ app.use(AppRouter.getInstance());
 const PORT = 4040;
 app.listen(PORT, async () => {
   console.log(`Server listening on port ${PORT}, ${process.env.WEATHER_API_KEY}`);
-  const response = await getWeatherData(-122.45479146186135, 37.77224173139603);
-  const keys = Object.keys(response);
-  console.log(`getWeatherData:`,keys, response.data );
+  // only uncomment when .env is present
+  // const response = await getWeatherData(-122.45479146186135, 37.77224173139603);
+  // const keys = Object.keys(response);
+  // console.log(`getWeatherData:`,keys, response.data );
 });
